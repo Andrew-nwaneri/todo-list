@@ -21,7 +21,7 @@ const EditTodoForm = ({editTodo, todo}) => {
       type="text"
       value={task}
       onChange={(e) => setTask(e.target.value)}
-      placeholder="What are we doing today?"
+      placeholder="Input task edit..."
       className="input-edit-form"
     />
     <button type="submit" className="edit-submit-btn"><Pencil /></button>
