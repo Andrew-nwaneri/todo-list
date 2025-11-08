@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from 'uuid'
+import "./components.css";
+import { Pencil } from "lucide-react"
 
-uuidv4();
 
 const EditTodoForm = ({editTodo, todo}) => {
 
@@ -15,12 +15,18 @@ const EditTodoForm = ({editTodo, todo}) => {
         };
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input value={task} placeholder="What are we doing today?" type="text" onChange={(e) => setTask(e.target.value)}></input>
-                <button type="submit">submit</button>
-            </form>  
-        </div>
+
+  <form onSubmit={handleSubmit} className="edit-form">
+    <input
+      type="text"
+      value={task}
+      onChange={(e) => setTask(e.target.value)}
+      placeholder="What are we doing today?"
+      className="input-edit-form"
+    />
+    <button type="submit" className="edit-submit-btn"><Pencil /></button>
+  </form>
+
     );
 }
 

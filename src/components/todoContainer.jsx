@@ -2,6 +2,7 @@ import TodoForm from "./todoForm"
 import { TodoList } from "./todoList";
 import { v4 as uuidv4 } from "uuid"
 import { useState } from "react";
+import "./components.css";
 
 export const TodoMain = () => {
     
@@ -15,9 +16,11 @@ export const TodoMain = () => {
 
 
     return (
-        <div>
-        <TodoForm addTodo={addTodo}/>
-        <TodoList todos={todos} setTodos={setTodos}/>
-        </div>
+<div className="todo-app-container">
+  <h1>My Tasks</h1>
+  <TodoForm addTodo={addTodo} />
+  <TodoList todos={todos} setTodos={setTodos} />
+</div>
+
     )
 }

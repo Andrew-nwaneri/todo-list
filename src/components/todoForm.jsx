@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from 'uuid'
+import "./components.css";
 
-uuidv4();
 
 const TodoForm = ({addTodo}) => {
 
@@ -14,12 +13,19 @@ const TodoForm = ({addTodo}) => {
         };
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input value={task} placeholder="What are we doing today?" type="text" onChange={(e) => setTask(e.target.value)}></input>
-                <button type="submit">submit</button>
-            </form>  
-        </div>
+<div className="todo-form-wrapper">
+  <form onSubmit={handleSubmit} className="todo-form">
+    <input
+      type="text"
+      value={task}
+      onChange={(e) => setTask(e.target.value)}
+      placeholder="What are we doing today?"
+      className="input-form"
+    />
+    <button type="submit" className="submit-btn">Submit</button>
+  </form>
+</div>
+
     );
 }
 

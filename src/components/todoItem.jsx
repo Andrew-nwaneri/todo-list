@@ -1,17 +1,32 @@
 import React, { useState } from "react";
-import "../App.css"
+import "./components.css";
+import { Trash2, Pencil } from "lucide-react"
 
 export const TodoItem = ({todo, index, handleDelete, handleEdit, handleClicked}) => {
   
   return(
-       <div key={index}>
-          <p className={`${todo.completed? 'completed' : ''}`} onClick={() => handleClicked(todo.id)}>
-            {todo.name}
-          </p>
-          <div>
-            <button onClick={() => handleEdit(todo.id)}>edit</button>
-            <button onClick={() => handleDelete(todo.id)}>delete</button>
-          </div>
-        </div>
+       <div key={index} className="todo-item">
+  <label className="task-container">
+    <input
+      type="checkbox"
+      checked={todo.completed}
+      onChange={() => handleClicked(todo.id)}
+      className="task-checkbox"
+    />
+    <p className={`task ${todo.completed ? 'completed' : ''}`}>
+      {todo.name}
+    </p>
+  </label>
+
+  <div className="actions">
+    <button onClick={() => handleEdit(todo.id)} className="edit">
+      <Pencil />
+    </button>
+    <button onClick={() => handleDelete(todo.id)} className="delete">
+      <Trash2 />
+    </button>
+  </div>
+</div>
+
     );
 }
